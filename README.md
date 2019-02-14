@@ -1,2 +1,2 @@
-# springboot-mybatis-demo2
+# springboot-mybatis-demo
 springboot+mybatis+mysql demo
