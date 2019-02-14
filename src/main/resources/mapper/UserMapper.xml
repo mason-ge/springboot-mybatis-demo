@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.dao.UserDao">
+    <sql id="BASE_TABLE">
+        bdf2_user
+    </sql>
+
+    <sql id="BASE_COLUMN">
+        USERNAME_
+    </sql>
+
+    <!-- 通用查询映射 -->
+    <resultMap type="Bdf2User" id="UserMap">
+
+        <id column="USERNAME_" property="username"/>
+        <result column="ADDRESS_" property="address"/>
+        <result column="ADMINISTRATOR_" property="administrator"/>
+        <result column="BIRTHDAY_" property="birthday"/>
+        <result column="CNAME_" property="cname"/>
+        <result column="COMPANY_ID_" property="companyId"/>
+        <result column="CREATE_DATE_" property="createDate"/>
+        <result column="EMAIL_" property="email"/>
+        <result column="ENABLED_" property="enabled"/>
+        <result column="ENAME_" property="ename"/>
+        <result column="MALE_" property="male"/>
+        <result column="MOBILE_" property="mobile"/>
+        <result column="PASSWORD_" property="password"/>
+        <result column="SALT_" property="salt"/>
+
+    </resultMap>
+
+    <insert id="insert" parameterType="com.demo.pojo.Bdf2User">
+        INSERT INTO bdf2_user (USERNAME_, PASSWORD_, MOBILE_)
+        VALUES (#{username}, #{password, jdbcType=VARCHAR}, #{mobile, jdbcType=VARCHAR})
+    </insert>
+
+    <select id="selectUsers" resultType="com.demo.pojo.Bdf2User" resultMap="UserMap">
+        select *
+        from bdf2_user
+    </select>
+
+</mapper>
